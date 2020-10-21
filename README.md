@@ -1,24 +1,77 @@
-# README
+# Ruby on Rails with Graphql Example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usage
 
-Things you may want to cover:
+```
+query {
+  tasks {
+    id
+    title
+    description
+    completed
+  }
+}
+```
 
-* Ruby version
+```
+query {
+ task(id:1) {
+    id
+    title
+    description
+    completed
+ }
+}
+```
 
-* System dependencies
+```
+mutation {
+  createTask(
+    input: {
+      title: "new task"
+      description: "This is a new task."
+    }
+  ) {
+    task {
+      id
+      title
+      description
+      completed
+    }
+    result
+  }
+}
+```
 
-* Configuration
+```
+mutation {
+  updateTask(
+    input: {
+      id: 11
+      completed: true
+    }
+  ) {
+    task {
+      id
+      title
+      description
+      completed
+    }
+    result
+  }
+}
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+mutation {
+  deleteTask(
+    input: {
+      id: 11
+    }
+  ) {
+    task{
+      id
+    }
+  }
+}
+```
