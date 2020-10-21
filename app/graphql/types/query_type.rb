@@ -1,13 +1,15 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :tasks, [Types::TaskType], null: false, description: 'タスクを全件取得する'
+    def tasks
+      Task.all
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :task, Types::TaskType, null: false, description: 'IDからタスクを取得する' do
+      argument :id, Int, required: false
+    end
+    def task(id:)
+      Task.find(id)
     end
   end
 end
