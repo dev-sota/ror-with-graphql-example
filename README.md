@@ -1,5 +1,8 @@
 # Ruby on Rails with Graphql Example
 
+## Frontend Example
+[nuxt-todoapp-with-graphql](https://github.com/dev-sota/nuxt-todoapp-with-graphql)
+
 ## Usage
 
 ```
